@@ -1,14 +1,11 @@
 pipeline {
     agent any
-
     stages {
-        stage('vishal') {
+        stage('isntall nginx') {
             steps {
-                sh '''sudo chmod 755 /home/welcomeuser
-                cd /home/welcomeuser
-                sudo mkdir vishal
-                sleep 30
-                sudo rm -rf vishal'''
+                sh '''sudo apt-get update
+                sudo apt-get install -y nginx
+                sudo nginx -v'''
             }
         }
     }
