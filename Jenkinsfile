@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('terraform init') {
+        stage('terraform init step') {
             steps {
                 withCredentials([azureServicePrincipal('welcome')]) {
                     sh '''
