@@ -2,12 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('terraform init step') {
+        stage('terraform init') {
             steps {
                 withCredentials([azureServicePrincipal('welcome')]) {
                     sh '''
                     cd /home/welcomeuser/practice/RG
                     terraform init
+                    terraform plan
+                    terraform apply -auto-approve
                     '''
                 }
             }
